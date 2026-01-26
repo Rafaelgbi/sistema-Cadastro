@@ -20,3 +20,6 @@ EXPOSE 3000
 
 # Comando para subir o servidor
 CMD ["npm", "run", "dev"]
+
+# Gera Prisma Client e sobe o servidor
+CMD ["sh", "-c", "npx prisma generate && npm run dev"]

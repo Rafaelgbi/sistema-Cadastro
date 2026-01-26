@@ -17,13 +17,13 @@ export const userService = {
 
         const user = await prisma.user.create({
             data: {
-                nome: data.nome,
+                name: data.nome,
                 email: data.email,
                 password: hashedPassword,
             },
             select:{
                 id: true,
-                nome: true,
+                name: true,
                 email: true,
                 createdAt: true,
             },
