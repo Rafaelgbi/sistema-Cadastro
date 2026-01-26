@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "module": "nodenext",
+    "target": "esnext",
+
+    "baseUrl": "./src",
+    "paths": {
+      "@schemas/*": ["schemas/*"],
+      "@controllers/*": ["controllers/*"],
+      "@services/*": ["services/*"]
+    },
+
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+
+    "strict": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+
+    "verbatimModuleSyntax": false
+  }
+}
