@@ -12,7 +12,9 @@ services:
       - ./src:/app/src         # código fonte
       - ./prisma:/app/prisma   # pasta do prisma
       - /app/node_modules      # protege node_modules no container
-    command: sh -c "npx prisma generate && npx prisma migrate deploy && npm run dev"
+    command: sh -c "  npx prisma generate &&
+      npx prisma migrate dev --name init &&
+      npm run dev"
 
   db:
     image: postgres:16
@@ -28,5 +30,3 @@ services:
 
 volumes:
   postgres_data:
-  
-  #test
