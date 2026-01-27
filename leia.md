@@ -3,10 +3,10 @@
 - primeiro criei o arquivo de configução do projeto com o :
     npm init -y
 
-- intalei o typescript em ambiente de desenvolvimento.
+- instalei o typescript em ambiente de desenvolvimento.
     npm install typescript --save-dev
 
-- demos inicio no typescript c  om o
+- dei inicio no typescript com o
     npx tsc --init
 
 - instalei o express e em dependecias externas os seu tipos em typescript :

@@ -1,8 +1,8 @@
 import type { Request, Response } from "express";
-import { createUserSchema } from '../../schemas/user.schema.js'
-import { userService } from "../../services/user.service.js";
+import { createUserSchema } from '../../schemas/user/user.schema.js'
+import { userService } from "../../services/user/user.service.js";
 
-export async function creatUser(req: Request, res: Response){
+export async function createUser(req: Request, res: Response){
     try{
         const data = await createUserSchema.validate(req.body, {
             abortEarly: false,
