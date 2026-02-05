@@ -43,5 +43,8 @@
     npm i bcrypt
     npm install -D @types/bcrypt
 
+- instalei o swegger para documentação:
+    npm install swagger-ui-express
+    
 
 

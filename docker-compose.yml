@@ -1,7 +1,7 @@
 services:
   api:
     build: .
-    container_name: api-express
+    container_name: api-express2
     ports:
       - "3000:3000"
     env_file:
@@ -18,7 +18,7 @@ services:
 
   db:
     image: postgres:16
-    container_name: postgres-db
+    container_name: postgres-db2
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}

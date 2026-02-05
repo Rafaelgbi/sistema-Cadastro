@@ -1,0 +1,88 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API aprendizado",
+        "description": "Essa API tem como abjetivo ao meu aprendizado",
+        "termsOfService": "http://localhost:3000/terms",
+        "contact": {
+            "email": "rafa-gbi@gmail.com"
+        },
+        "version": " 1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3000",
+            "description": "API de test"
+        }
+    ],
+    "paths": {
+        "/user":{
+            "post":{
+                "summary": "Cadastro de usuário",
+                "description": "Essa rota é responsavel por cadastrar um usuário",
+                "tags": ["Usuário"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Usuário"
+                            },
+                            "examples":{
+                                "usuário": {
+                                    "value" :{
+                                        "name": "joao",
+                                        "email": "rafa-gbi@gmail.com",
+                                        "password": "123456"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Usuário cadastrado com sucesso!",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "type": "object",
+                                    "$ref":"#/components/schemas/Usuário"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Erro de validação dos dados enviados!"
+                    },
+                    "409": {
+                        "description": "e-mail já cadastrado"
+                    },
+                    "500": {
+                        "description": "Erro interno do servidor"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas":{
+            "Usuário": {
+                "type": "object",
+                "properties": {
+                    "name":{
+                        "type": "string"
+                    },
+                    "email": {
+                         "type": "string"
+                    },
+                    "password": {
+                         "type": "string"
+                    },
+                    "id": {
+                        "type": "string"   
+                    }
+            }
+        }
+    }
+}
+}
