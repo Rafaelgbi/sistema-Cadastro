@@ -1,0 +1,55 @@
+{
+  "components": {
+    "schemas": {
+      "UserCreate": {
+        "type": "object",
+        "required": ["nome", "email", "password"],
+        "properties": {
+          "nome": { 
+            "type": "string",
+            "example": "Rafael"
+          },
+          "email": { 
+            "type": "string", 
+            "format": "email",
+            "example": "rafa@gmail.com"
+          },
+          "password": { 
+            "type": "string", 
+            "format": "password",
+            "example": "123456"
+          }
+        }
+      },
+
+      "UserResponse": {
+        "type": "object",
+        "properties": {
+          "id": { 
+            "type": "string",
+            "example": "clx9k2h1a0000abc123xyz"
+          },
+          "nome": { 
+            "type": "string",
+            "example": "Rafael"
+          },
+          "email": { 
+            "type": "string",
+            "format": "email",
+            "example": "rafa@gmail.com"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2026-02-05T21:00:00.000Z"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2026-02-05T21:10:00.000Z"
+          }
+        }
+      }
+    }
+  }
+}

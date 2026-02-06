@@ -1,0 +1,82 @@
+{
+  "/user": {
+    "post": {
+      "summary": "Cadastro de usuário",
+      "description": "Essa rota é responsável por cadastrar um usuário",
+      "tags": ["Users"],
+      "requestBody": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../schemas/user.schema.json#/components/schemas/UserCreate"
+            },
+            "examples": {
+                "user":{
+                    "nome": "Rafael",
+                    "email": "rafa@gmail.com",
+                    "password": "123456"
+                }
+            }
+          }
+        }
+      },
+      "responses": {
+        "201": {
+          "description": "Usuário cadastrado com sucesso",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "../schemas/user.schema.json#/components/schemas/UserResponse"
+              }
+            }
+          }
+        },
+        "400": { "description": "Erro de validação" },
+        "409": { "description": "E-mail já cadastrado" },
+        "500": { "description": "Erro interno do servidor" }
+      }
+    }
+  },
+
+  "/users": {
+    "get":{
+      "summary": "Busca um usuário por email",
+      "description": "Retorna um usuário específico a parti do email informado",
+      "tags": ["Users"],
+      "parameters": [
+        {
+          "nome": "email",
+          "in": "query",
+          "required": true,
+          "description": "E-mail do usuário a ser buscado",
+          "schema": {
+            "type": "string",
+            "example": "rafa@gmail.com"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Usuário encontrado com sucesso",
+          "content":{
+            "application/json":{
+              "schema":{
+                "$ref": "../schemas/user.schema.json#/components/schemas/UserResponse"
+              }
+            }
+          }
+        },
+        "404": {
+        "description": "Usuário não encontrado"
+      },
+      "400": {
+        "description": "Parâmetro de e-mail não informado ou inválido"
+      },
+      "500": {
+        "description": "Erro interno do servidor"
+      }
+      }
+    }
+  }
+}
