@@ -1,0 +1,20 @@
+{
+  "openapi": "3.0.0",
+  "info": {  
+    "title": "API Aprendizado",
+    "version": "1.0.0",
+    "description": "API para fins de estudo"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "description": "Servidor local"
+    }
+  ],
+  "paths": {
+    "$ref": "./paths/user.paths.json"
+  },
+  "components": {
+    "$ref": "./schemas/user.schema.json#/components"
+  }
+}
