@@ -42,11 +42,11 @@
   "/users": {
     "get":{
       "summary": "Busca um usuário por email",
-      "description": "Retorna um usuário específico a parti do email informado",
+      "description": "Retorna um usuário específico a partir do email informado",
       "tags": ["Users"],
       "parameters": [
         {
-          "nome": "email",
+          "name": "email",
           "in": "query",
           "required": true,
           "description": "E-mail do usuário a ser buscado",
@@ -76,6 +76,68 @@
       "500": {
         "description": "Erro interno do servidor"
       }
+      }
+    }
+  },
+
+  "/user/{id}":{
+    "delete":{
+      "summary": "Deletar usuário por ID",
+      "description": "Deleta o usuario por ID informado",
+      "tags": ["Users"],
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "Id do usuário a ser deletado",
+          "schema":{
+            "type": "string",
+            "example": "clx123abc456"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Usuario deletado com sucesso",
+          "content": {
+            "application/json": {
+              "example":{
+                "message": "User deleted successfully"
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "ID inválido fornecido na requisição",
+          "content": {
+            "application/json":{
+              "example": {
+                "message": "Invalid user ID"
+              }
+            }
+          }
+        },
+        "404":{
+          "description": "Usuario não encontrado",
+          "content": {
+            "application/json":{
+              "example":{
+                "message": "User not found"
+              }
+            }
+          }
+        },
+        "500":{
+          "description": "Erro interno do servidor",
+          "content":{
+            "application/json":{
+              "example": {
+                "message": "erro interno do servidor!"
+              }
+            }
+          }
+        }
       }
     }
   }
